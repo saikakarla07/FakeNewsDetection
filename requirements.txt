@@ -1,0 +1,13 @@
+Flask
+python-dotenv
+numpy
+pandas
+pillow
+protobuf==3.20.3 
+flask-socketio
+eventlet
+tensorflow==2.12.0
+keras==2.12.0
+opencv-python
+scikit-learn
+requests
