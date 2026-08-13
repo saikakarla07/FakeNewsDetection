@@ -1,0 +1,74 @@
+{% extends "base.html" %} 
+{% block content %}
+
+<section class="analyze-layout">
+
+    <!-- ================= INPUT BOX ================= -->
+    <div class="feature-card" style="flex:1.5; max-width:800px;">
+
+        <h3>Analyze News</h3>
+
+        <form id="analyzeForm" enctype="multipart/form-data">
+
+            <!-- SMALL TOGGLE -->
+            <div class="toggle-row">
+                <button type="button" id="textToggle" class="small-btn">Text</button>
+                <button type="button" id="imageToggle" class="small-btn">Image</button>
+            </div>
+
+            <textarea id="textInput" name="text"
+                placeholder="Paste news text here..."
+                style="width:100%; height:130px;"></textarea>
+
+            <input id="imageInput" type="file" name="image" style="display:none;">
+
+            <!-- preview -->
+            <div id="imagePreviewContainer" style="display:none; text-align:center;">
+                <img id="imagePreview" class="preview-img">
+            </div>
+
+            <!-- CENTER BUTTON -->
+            <div style="text-align:center;">
+                <button type="submit" class="btn-primary" style="width:55%; margin-top:15px;">
+                    Analyze
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+
+
+    <!-- ================= RESULT BOX (ALWAYS VISIBLE) ================= -->
+    <div id="resultBox" class="feature-card result-card" style="flex:1; max-width:380px;">
+
+        <h3 style="margin-bottom:20px;">Result</h3>
+
+        <div id="resultIcon" class="result-icon">•</div>
+
+        <h2 id="bigResult" class="result-title">
+            Result will appear here
+        </h2>
+
+        <p id="credibilityScore" class="confidence-text">-</p>
+
+        <div class="confidence-bar">
+            <div id="confidenceFill" class="confidence-fill"></div>
+        </div>
+
+        <!-- Analysis heading -->
+        <h4 class="analysis-heading">Analysis Details</h4>
+
+        <div id="explanation" class="analysis-details"></div>
+
+        <button id="retryBtn" class="btn-outline" style="margin-top:15px;">
+            Clear
+        </button>
+
+    </div>
+
+</section>
+
+<script src="{{ url_for('static', filename='js/analyze.js') }}"></script>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="analytics-page">
+
+    <!-- ================= HEADER ================= -->
+    <div class="analytics-top">
+
+        <!-- LEFT -->
+        <div class="analytics-title">
+            <span class="title-icon">
+                <svg viewBox="0 0 24 24" class="growth-line">
+                    <polyline points="3,16 9,10 13,14 21,6" />
+                </svg>
+            </span>
+            <div>
+                <h1>Latest Analyzed</h1>
+                <p id="periodText">Activity from the last 24 hours</p>
+            </div>
+        </div>
+
+        <!-- RIGHT FILTERS -->
+        <div class="analytics-filters">
+            <button id="dailyBtn" class="filter-btn active">Today</button>
+            <button id="weeklyBtn" class="filter-btn">Week</button>
+        </div>
+
+    </div>
+
+
+    <!-- ================= STATS ================= -->
+    <div class="stats-cards">
+
+        <div class="stats-card">
+            <p>Total Analyses</p>
+            <h2 id="total">0</h2>
+        </div>
+
+        <div class="stats-card real-card">
+            <p>Real Content</p>
+            <h2 id="real">0</h2>
+            <span>verified</span>
+        </div>
+
+        <div class="stats-card fake-card">
+            <p>Fake Content</p>
+            <h2 id="fake">0</h2>
+            <span>detected</span>
+        </div>
+
+    </div>
+
+
+    <!-- ================= CHARTS ================= -->
+    <div class="charts-section">
+
+        <div class="chart-box">
+            <h3>Hourly Activity</h3>
+            <canvas id="hourChart"></canvas>
+        </div>
+
+        <div class="chart-box">
+            <h3>Content Distribution</h3>
+            <canvas id="pieChart"></canvas>
+        </div>
+
+    </div>
+
+
+    <!-- ================= RECENT ================= -->
+    <div class="recent-section">
+        <h3>Recent Analyses</h3>
+        <div id="recentList"></div>
+    </div>
+
+</section>
+
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/analytics.js') }}"></script>
+
+{% endblock %}

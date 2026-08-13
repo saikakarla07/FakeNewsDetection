@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div style="padding:40px;display:flex;gap:15px;flex-wrap:wrap">
+    <input id="searchBox" placeholder="Search news...">
+
+    <select id="categoryBox">
+        <option value="">All</option>
+        <option value="technology">Tech</option>
+        <option value="business">Business</option>
+        <option value="health">Health</option>
+        <option value="science">Science</option>
+    </select>
+</div>
+
+<h3 style="padding:0 40px">🔥 Trending Fake Alerts</h3>
+<div id="alertBox" style="padding:0 40px"></div>
+
+<h3 style="padding:0 40px">
+    🔴 Live News Feed
+    <span id="liveBadge" class="liveBadge">LIVE</span>
+</h3>
+
+<section id="newsContainer" class="newsGrid"></section>
+
+<!-- ONLY external JS -->
+<script src="{{ url_for('static', filename='js/live_news.js') }}"></script>
+
+{% endblock %}
